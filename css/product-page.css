@@ -1,0 +1,399 @@
+body{
+  font-family: serif;
+}
+
+.product-margin {
+  margin-top: 10px;
+}
+
+.product-first-animation {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  top: 350px;
+  opacity: 0; 
+  color: white;
+
+  animation-name: fadeInWaitAndOut;
+  animation-duration: 5s; 
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards; 
+}
+
+.animation-first-none{
+  display: none;
+}
+
+@keyframes fadeInWaitAndOut {
+  0% {
+    opacity: 0;
+  }
+  43% {
+
+    opacity: 1;
+  }
+  57% {
+
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1743273291499-e2c1da988688?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+.product-center {
+  background: #f4f4f44a;
+  border-radius: 16px;
+  padding: 32px;
+  margin: 32px;
+}
+.product-box-shadow img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.page-flex {
+  margin: auto;
+  width: 768px;
+}
+
+.product-btn {
+  margin: 10px auto;
+  padding: 5px;
+  width: 50%;
+  box-shadow: 10px 10px 15px -10px gray;
+  background-color: white;
+  color: black;
+  position: relative;
+  top: 0px;
+}
+
+.product-btn:hover {
+  top: 2px;
+  box-shadow: none;
+}
+
+.product-btn2 {
+  margin: 10px auto;
+  padding: 5px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.product-box-shadow {
+  box-shadow: 10px 10px 15px -10px gray;
+  position: relative;
+  top: 0px;
+}
+
+.product-box-shadow a {
+  color: white;
+  text-decoration: none;
+}
+
+.product-box-shadow:hover {
+  top: 2px;
+  box-shadow: none;
+}
+
+.product-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.product-header-flex {
+  display: flex;
+  justify-content: space-between;
+  background: #f4f4f44a;
+  padding: 0 1rem;
+}
+
+.product-white-box {
+  padding: 10px 5px;
+  box-shadow: 10px 10px 15px -10px gray;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+.product-nav-box p {
+  padding: 10px 5px;
+  box-shadow: 10px 10px 15px -10px gray;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.product-nav-box a {
+  text-decoration: none;
+}
+
+.product-nav-box p:hover {
+  top: 2px;
+  box-shadow: none;
+}
+
+.product-nav-box a {
+  color: black;
+}
+
+.product-text-box {
+  background-color: #8b8b8b;
+  padding: 5px;
+  color: white;
+}
+
+.product-margin-top {
+  margin-top: 1rem;
+}
+
+.product-flex {
+  display: flex;
+  gap: 3rem;
+}
+
+.product-flex2 {
+  display: flex;
+  gap: 2rem;
+}
+
+.product-width {
+  width: 100%;
+  display: block;
+  justify-content: center;
+}
+
+.modal-close {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-close.modal-open {
+  display: flex;
+}
+
+.product-hover {
+  cursor: pointer;
+}
+
+.banner-box {
+  width: 200px;
+  background: rgba(255, 255, 255, 0.85);
+  position: fixed;
+  top: 600px;
+  left: 1300px;
+}
+
+.banner-box2 {
+  width: 100px;
+  background: rgba(255, 255, 255, 0.85);
+  position: fixed;
+  top: 600px;
+  left: 1400px;
+  height: 200px;
+}
+
+.banner-close-block,
+.banner-open-block {
+  position: fixed;
+  top: 300px;
+  right: 0;
+  left: 30px;
+  width: 200px;
+  transition: transform 0.5s, opacity 0.5s;
+  opacity: 1;
+  z-index: 100;
+}
+
+.banner-close-block {
+  transform: translateX(0);
+  display: block;
+}
+.banner-close-block.closed {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.banner-open-block {
+  transform: translateX(100%);
+  opacity: 0;
+  display: block;
+}
+.banner-open-block.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animation-opacity {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .banner-close-block,
+  .banner-open-block {
+    top: 115px;
+  }
+}
+
+/* 既存のスタイルはそのまま */
+
+@media screen and (max-width: 1024px) {
+  /* ヘッダーのレイアウトを縦並びに変更 */
+  .product-header-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 29%;
+  }
+
+  .product-center {
+    width: 60%;
+    margin: 20px auto;
+  }
+
+  .product-header-flex a {
+    margin: 5px 0;
+  }
+
+  /* 商品リストのレイアウトを変更 */
+  .product-flex {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .product-flex2 {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  /* 商品カードの幅を調整 */
+  .product-box-shadow {
+    width: 90%;
+  }
+
+  /* サイドメニューの位置調整 */
+  .banner-box {
+    position: static;
+    margin: 20px auto;
+    width: 90%;
+  }
+
+  .banner-box2 {
+    position: static;
+    margin: 20px auto;
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* ページ全体の幅を調整 */
+
+  .product-header-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .page-flex {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  /* 商品画像のサイズを調整 */
+
+  .product-box-shadow img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-center {
+    width: 60%;
+    margin: 20px auto;
+  }
+
+  /* ボタンの幅を調整 */
+  .product-btn,
+  .product-btn2 {
+    width: 100%;
+  }
+
+  .product-btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-header-flex {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  /* ヘッダーのフォントサイズを調整 */
+  .product-header-flex h1 {
+    font-size: 1.5rem;
+  }
+
+  /* 商品名のフォントサイズを調整 */
+  .product-flex p {
+    font-size: 1rem;
+  }
+
+  .product-center {
+    width: 60%;
+    margin: 20px auto;
+  }
+
+  /* サイドメニューを非表示にする */
+  .banner-box,
+  .banner-box2 {
+    display: none;
+  }
+}

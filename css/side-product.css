@@ -1,0 +1,50 @@
+body{
+  font-family: serif;
+}
+
+.product-text-right{
+  text-align: right;
+}
+
+.product-list-box {
+  width: 40%;
+  text-align: center;
+  margin: 150px 50px 0 0px;
+}
+
+.product-list-box-none {
+  text-align: center;
+  margin: 150px 50px 0 0px;
+  display: none;
+}
+
+.product-list-box-none a{
+  text-decoration: none;
+  color: black;
+}
+
+.block-open {
+  display: block;
+}
+
+.product-flex {
+  display: flex;
+}
+
+.test:hover {
+  cursor: pointer;
+}
+
+
+.product-btn {
+  border: 1px solid black;
+  border-radius: 50px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 100%;
+}
+
+.product-btn:hover {
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,21 @@
+body{
+  font-family: serif;
+}
+
+
+.login-width{
+    display: flex;
+}
+
+.login-form-container {
+  margin: 0 auto;
+  display: inline-block;
+  box-shadow: 0 0 8px gray;
+  padding: 50px;
+  width: 500px;
+  justify-content: center;
+}
+
+.login-mt {
+  margin-top: 1rem;
+}

@@ -1,0 +1,15 @@
+body{
+  font-family: serif;
+}
+
+
+.form-center{
+    margin: 100px auto;
+    box-shadow: 0 0 8px gray;
+    padding: 50px;
+    width: 600px;
+}
+
+.form-mt{
+    margin-top: 10px;
+}

@@ -1,0 +1,45 @@
+:root {
+  --primary-bg-color: white;
+  --secondary-bg-color: gray;
+  --text-color-light: white;
+  --box-shadow-color: gray;
+}
+
+body {
+  background-color: rgb(169 169 169);
+  margin: 0;
+  font-family: serif;
+}
+
+.product-detail-container {
+  text-align: center;
+}
+
+.product-detail-box {
+  background-color: var(--primary-bg-color);
+  box-shadow: 0 0 8px var(--box-shadow-color);
+  width: 500px;
+  display: inline-block;
+  padding: 10px;
+}
+
+.product-detail-box2 {
+  background-color: var(--secondary-bg-color);
+  border-radius: 20px;
+  width: 200px;
+  text-align: center;
+  margin: 10px auto 0;
+  padding: 5px 10px;
+}
+
+.product-detail-box2 a{
+    color: var(--text-color-light);
+    text-decoration: none;
+}
+
+/* スマートフォン向けのスタイル */
+@media screen and (max-width: 768px) {
+  .product-detail-box {
+    width: 90%;
+  }
+}

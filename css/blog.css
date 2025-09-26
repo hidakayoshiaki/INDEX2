@@ -1,0 +1,43 @@
+body{
+  font-family: serif;
+}
+
+.blog-center {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.blog-center p {
+  margin: 0;
+  padding: 0;
+}
+
+.blog-block {
+  display: block;
+  margin-top: 10px;
+}
+
+.blog-block textarea {
+  resize: none;
+  width: 300px;
+  height: 200px;
+}
+
+.blog-width {
+  width: 300px;
+}
+
+.toukou-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.toukou-block {
+  list-style: none;
+width: 300px;
+  margin: 10px;
+  padding: 10px;
+   box-shadow: 0 0 2px gray;
+}

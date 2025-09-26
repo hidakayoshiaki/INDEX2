@@ -1,0 +1,12 @@
+body{
+  font-family: serif;
+}
+
+
+.logout-white-box{
+    box-shadow: 0 0 8px gray;
+    margin: 100px auto;
+    text-align: center;
+    padding: 30px;
+    width: 300px;
+}

@@ -1,0 +1,10 @@
+# Composerでインストールしたライブラリを除外
+/vendor/
+
+# OSが自動生成するファイルを除外
+.DS_Store
+Thumbs.db
+
+# ログファイルや一時ファイル
+*.log
+*.tmp

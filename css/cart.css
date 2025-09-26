@@ -1,0 +1,10 @@
+body{
+  font-family: serif;
+}
+
+.cart-center{
+    margin: 100px auto;
+    box-shadow: 0 0 8px gray;
+    padding: 50px;
+    width: 600px;
+}
