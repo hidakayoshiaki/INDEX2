@@ -197,6 +197,17 @@ body {
   z-index: 100;
 }
 
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal-content img {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
 .modal-close.modal-open {
   display: flex;
 }
@@ -277,10 +288,8 @@ body {
   }
 }
 
-/* 既存のスタイルはそのまま */
-
 @media screen and (max-width: 1024px) {
-  /* ヘッダーのレイアウトを縦並びに変更 */
+  
   .product-header-flex {
     flex-direction: column;
     align-items: center;
@@ -298,7 +307,6 @@ body {
     margin: 5px 0;
   }
 
-  /* 商品リストのレイアウトを変更 */
   .product-flex {
     flex-direction: column;
     gap: 1.5rem;
@@ -311,12 +319,11 @@ body {
     align-items: center;
   }
 
-  /* 商品カードの幅を調整 */
+
   .product-box-shadow {
     width: 90%;
   }
 
-  /* サイドメニューの位置調整 */
   .banner-box {
     position: static;
     margin: 20px auto;
@@ -332,7 +339,6 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  /* ページ全体の幅を調整 */
 
   .product-header-flex {
     flex-direction: column;
@@ -347,8 +353,6 @@ body {
     padding: 0 10px;
   }
 
-  /* 商品画像のサイズを調整 */
-
   .product-box-shadow img {
     width: 100%;
     height: auto;
@@ -359,7 +363,6 @@ body {
     margin: 20px auto;
   }
 
-  /* ボタンの幅を調整 */
   .product-btn,
   .product-btn2 {
     width: 100%;
@@ -376,12 +379,10 @@ body {
     margin: 0 auto;
   }
 
-  /* ヘッダーのフォントサイズを調整 */
   .product-header-flex h1 {
     font-size: 1.5rem;
   }
 
-  /* 商品名のフォントサイズを調整 */
   .product-flex p {
     font-size: 1rem;
   }
@@ -391,7 +392,6 @@ body {
     margin: 20px auto;
   }
 
-  /* サイドメニューを非表示にする */
   .banner-box,
   .banner-box2 {
     display: none;

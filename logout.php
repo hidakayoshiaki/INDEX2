@@ -4,8 +4,8 @@
 session_start();
 
 $_SESSION = array();
+
 session_destroy();
-$_SESSION['navigated_within_site'] = true;
 ?>
 
 <!DOCTYPE html>

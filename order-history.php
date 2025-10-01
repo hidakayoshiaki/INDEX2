@@ -2,22 +2,22 @@
 
 session_start();
 $_SESSION['navigated_within_site'] = true;
-include "./db.php";
+include __DIR__ . '/../server-db/db.php';
 
 $db = new DbConnection();
 $pdo = $db->connect();
 
-
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
+// ログインしていない場合は、ログインページにリダイレクト
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
 }
 
-
+// ログインしているユーザーのIDを取得
+$user_id = $_SESSION['user_id'];
 
 $stmt = $pdo->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC");
-if (isset($_SESSION['user_id'])) {
-    $stmt->execute([$user_id]);
-}
+$stmt->execute([$user_id]);
 
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

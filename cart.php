@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "./db.php";
+include __DIR__ . '/../server-db/db.php';
 $db = new DbConnection();
 $pdo = $db->connect();
 
@@ -19,18 +19,10 @@ try {
     $stmt = $pdo->prepare("INSERT INTO carts(user_id,product_id ) VALUES(?,?)");
     $stmt->execute([$user_id, $product_id]);
 
+    // 処理が完了したらマイカートページへリダイレクト
+    header('Location: ./mycart.php');
+    exit;
 
-    echo 
-    "<head>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel='stylesheet' href='./css/cart.css' />
-    </head>";
-    echo "<body>";
-    echo"<div class='cart-center'>";
-    echo "<p>ご予約に追加しました</p>";
-    echo "<p><a href='./mycart.php'>ご予約を確認する</a></p>";
-     echo "</body>";
-         echo"</div>";
 } catch (PDOException $e) {
     echo "エラー: " . $e->getMessage();
 }

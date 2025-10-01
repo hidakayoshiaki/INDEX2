@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['navigated_within_site'] = true;
-include "./db.php";
+include __DIR__ . '/../server-db/db.php';
 
 $db = new DbConnection();
 $pdo = $db->connect();
@@ -52,28 +52,25 @@ if (isset($_SESSION['user_id'])) {
                 exit;
             }
 
-            // 2. トランザクションを開始して、データの整合性を保証する
             $pdo->beginTransaction();
 
-            // 3. `orders`テーブルに注文記録を作成
             $stmt_order = $pdo->prepare("INSERT INTO orders (user_id, created_at) VALUES (?, NOW())");
             $stmt_order->execute([$user_id]);
             $order_id = $pdo->lastInsertId();
 
-            // 4. `order_items`テーブルに注文明細を保存
+            // order_itemsテーブルに注文明細を保存
             $stmt_items = $pdo->prepare("INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)");
             foreach ($carts as $cart) {
                 $stmt_items->execute([$order_id, $cart['product_id'], $cart['quantity']]);
             }
 
-            // 5. カートを空にする
             $stmt_delete = $pdo->prepare("DELETE FROM carts WHERE user_id = ?");
             $stmt_delete->execute([$user_id]);
 
-            // 6. すべての処理が成功したら、トランザクションをコミット
+            // 処理が成功したら、コミット
             $pdo->commit();
 
-            // 7. ユーザーに完了メッセージと注文内容を表示
+            // ユーザーに完了メッセージと注文内容を表示
             echo "<div class='order-management-box'>";
             echo "<h1>ご注文頂き誠にありがとうございます。</h1>";
             echo "<p>以下の内容でご予約を承りました。</p>";
@@ -86,13 +83,10 @@ if (isset($_SESSION['user_id'])) {
             echo "<p><a href='./order-history.php'>ご予約履歴を確認する</a></p>";
             echo "</div>";
         } catch (PDOException $e) {
-            // エラーが発生した場合は、変更をすべて元に戻す（ロールバック）
             $pdo->rollBack();
-            // 実際の本番環境では、エラーメッセージを直接表示せず、ログに記録します。
             die("注文処理中にエラーが発生しました: " . $e->getMessage());
         }
     } else {
-        // POST以外の方法でアクセスされた場合は、カートページにリダイレクト
         header('Location: mycart.php');
         exit;
     }

@@ -1,54 +1,51 @@
 <?php
 session_start();
-include "./db.php";
+
+// ログイン試行のエラーメッセージをセッションに保存するための準備
+$_SESSION['login_error'] = '';
+
+include __DIR__ . '/../server-db/db.php';
 $db = new DbConnection();
 $pdo = $db->connect();
 
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login-process.css">
-    <title>Document</title>
-</head>
-<body>
-
-<?php
 try {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: login.php');
+        exit;
+    }
+    
+    // 入力値の検証
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        $_SESSION['login_error'] = 'ユーザー名とパスワードを入力してください。';
+        header('Location: login.php');
+        exit;
+    }
 
-
-    $username = $_POST['username'] ?? null;
-    $password = $_POST['password'] ?? null;
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $stmt = $pdo->prepare("SELECT * FROM userdatatest WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($user) {
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['user_id'] = $user['id'];
-            echo "<div class='login-white-box'>";
-            echo "<p>ログインに成功しました！</p>";
-            echo "<a href='./product-page.php'>topページへ</a>";
-            echo "</div>";
-        } else {
-            echo "パスワードが間違っています。<br>";
-            echo "<a href='./login.php'>戻る</a>";
-        }
+
+    // ユーザーが存在し、かつパスワードが一致する場合
+    if ($user && password_verify($password, $user['password'])) {
+        // セッションIDを再生成してセッションハイジャック対策
+        session_regenerate_id(true);
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['user_id'] = $user['id'];
+        header('Location: ./product-page.php');
+        exit;
     } else {
-        // ユーザーが存在しない場合
-        echo "ユーザー名が存在しません。<br>";
-        echo "<a href='./login.php'>戻る</a>";
+      
+        $_SESSION['login_error'] = 'ユーザー名またはパスワードが正しくありません。';
+        header('Location: login.php');
+        exit;
     }
 } catch (PDOException $e) {
-    echo "エラー: " . $e->getMessage();
+ 
+    error_log("Login Error: " . $e->getMessage());
+    $_SESSION['login_error'] = 'データベースエラーが発生しました。しばらくしてから再度お試しください。';
+    header('Location: login.php');
+    exit;
 }
-
-?>
-    
-</body>
-</html>

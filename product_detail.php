@@ -12,7 +12,7 @@ if (!$product_id || !is_numeric($product_id)) {
     exit;
 }
 
-include "./db.php";
+include __DIR__ . '/../server-db/db.php';
 $db = new DbConnection();
 $pdo = $db->connect();
 
