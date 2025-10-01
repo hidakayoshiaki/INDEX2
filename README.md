@@ -37,7 +37,7 @@ order-history.php: ログインユーザーの過去の予約履歴を一覧表�
 4. セキュリティ意識:
 password_hash() / password_verify() を用いて、パスワードを安全に管理しています。
 
-**バックエンド:** PHP 8.3
+- **バックエンド:** PHP 8.3
 - **フロントエンド:** HTML, CSS, JavaScript (ES6)
 - **データベース:** MySQL
 - **Webサーバー:** Apache (XAMPP), Xserver
