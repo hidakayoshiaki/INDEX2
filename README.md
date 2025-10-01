@@ -1,4 +1,4 @@
-http://portfolio001.xsrv.jp/product-page.php
+URL:　http://portfolio001.xsrv.jp/product-page.php
 
 ポートフォリオ概要
 このポートフォリオは、PHPとMySQLを使用して構築したホテル客室の予約Webアプリケーションです。 ECサイトの基本的な機能である、ユーザーの新規登録・ログインから、商品（客室）の検索、予約（カート機能）、予約履歴の確認までの一連の流れを実装しています。
@@ -34,8 +34,11 @@ mycart.php: 現在カートに入っている客室の一覧を表示するペ�
 カートテーブル（carts）から商品を削除
 order-history.php: ログインユーザーの過去の予約履歴を一覧表示します。
 
-
 4. セキュリティ意識:
 password_hash() / password_verify() を用いて、パスワードを安全に管理しています。
 
+**バックエンド:** PHP 8.3
+- **フロントエンド:** HTML, CSS, JavaScript (ES6)
+- **データベース:** MySQL
+- **Webサーバー:** Apache (XAMPP), Xserver
 
