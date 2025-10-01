@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-include "./db.php";
+include __DIR__ . '/../server-db/db.php';
 
 $db = new DbConnection();
 $pdo = $db->connect();
@@ -44,7 +44,7 @@ $user_id = $_SESSION['user_id'];
 </head>
 
 <body>
-    <!-- 注文確定機能はmycart.phpに移動しました -->
+
     <p><a href='./product-page.php'>戻る</a>
     <p>
 

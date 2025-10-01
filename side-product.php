@@ -16,8 +16,8 @@ session_start();
 
 <body>
     <div class="product-text-right">
-        <p>ゲスト名<?php if (isset($_SESSION['username'])) {
-                    echo $_SESSION['username'];
+        <p>ようこそ、<?php if (isset($_SESSION['username'])) {
+                    echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');
                 } ?></p>
         <p><a href="test-product-page.php">戻る</a></p>
     </div>

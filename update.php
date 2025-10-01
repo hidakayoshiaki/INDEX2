@@ -1,6 +1,8 @@
 <?php
 session_start();
-include "./db.php";
+// Webルートの外にあるdb.phpを読み込む
+// __DIR__ はこのファイルのディレクトリを指す -> /home/portfolio001/public_html/index2
+include __DIR__ . '/../server-db/db.php';
 
 // POSTリクエストでない場合は処理を中断
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -35,7 +37,8 @@ try {
     echo "<p><a href='1234.php'>一覧に戻る</a></p>";
 
 } catch (PDOException $e) {
-    echo "データベースエラー: " . $e->getMessage();
+    error_log("Update Error: " . $e->getMessage());
+    echo "データベースエラーが発生しました。しばらくしてから再度お試しください。";
     exit;
 }
 ?>
